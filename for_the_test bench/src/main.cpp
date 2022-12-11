@@ -19,7 +19,7 @@ void setup()
     Serial.begin(115200);
     lcd.init();
     lcd.setCursor(4, 1);
-    lcd.print("Dozer V 0.0.1");
+    lcd.print("LCD Test V 0.0.1");
     // Store initial LED state. HIGH when LED is on.
     keypad.addEventListener(keypadEvent); // Add an event listener for this keypad
     delay(1000);
