@@ -15,27 +15,27 @@
 
 //
 // Menu texts
-PROGMEM prog_char top_menu_item00[]="Collect data";
-PROGMEM prog_char top_menu_item01[]="Upload to PC";
-PROGMEM prog_char top_menu_item02[]="Set Menu Style";
-PROGMEM prog_char top_menu_item03[]="File management";
-PROGMEM prog_char top_menu_item04[]="Show credit See who spent so much time making it happen!";
-PROGMEM const char *top_menu_items[] = {top_menu_item00, top_menu_item01, top_menu_item02, top_menu_item03, top_menu_item04};
+const char* top_menu_item00 ="Collect data";
+const char* top_menu_item01= "Upload to PC";
+const char* top_menu_item02 = "Set Menu Style";
+const char* top_menu_item03 ="File management";
+const char* top_menu_item04 = "Show credit See who spent so much time making it happen!";
+const char *top_menu_items[] = {top_menu_item00, top_menu_item01, top_menu_item02, top_menu_item03, top_menu_item04};
 
-PROGMEM prog_char sub_menu_1_item00[]="Load file";
-PROGMEM prog_char sub_menu_1_item01[]="Save file";
-PROGMEM prog_char sub_menu_1_item02[]="Delete file";
-PROGMEM prog_char sub_menu_1_item03[]="Back to main menu";
-PROGMEM const char *sub_menu_1_items[] = {sub_menu_1_item00, sub_menu_1_item01, sub_menu_1_item02, sub_menu_1_item03};
+const char* sub_menu_1_item00 = "Load file";
+const char* sub_menu_1_item01 = "Save file";
+const char* sub_menu_1_item02 = "Delete file";
+const char* sub_menu_1_item03 = "Back to main menu";
+const char *sub_menu_1_items[] = {sub_menu_1_item00, sub_menu_1_item01, sub_menu_1_item02, sub_menu_1_item03};
 
-PROGMEM prog_char menu_style00[]="Arrow/dot indicator on";
-PROGMEM prog_char menu_style01[]="Index1 on-excludes index2";
-PROGMEM prog_char menu_style02[]="Index2 on-excludes index1";
-PROGMEM prog_char menu_style03[]="Autoscroll long items on";
-PROGMEM prog_char menu_style04[]="Flashing cursor on";
-PROGMEM prog_char menu_style05[]="Center on item on";
-PROGMEM prog_char menu_style06[]="Scroll bar to the right on";
-PROGMEM const char *menu_styles[] = {menu_style00, menu_style01, menu_style02, menu_style03, menu_style04, menu_style05, menu_style06};
+const char* menu_style00 = "Arrow/dot indicator on";
+const char*  menu_style01 ="Index1 on-excludes index2";
+const char*  menu_style02 = "Index2 on-excludes index1";
+const char* menu_style03 = "Autoscroll long items on";
+const char* menu_style04 = "Flashing cursor on";
+const char* menu_style05 = "Center on item on";
+const char* menu_style06 = "Scroll bar to the right on";
+const char *menu_styles[] = {menu_style00, menu_style01, menu_style02, menu_style03, menu_style04, menu_style05, menu_style06};
 //End of definitions
 
 
@@ -60,7 +60,7 @@ char * function_keys[]={up_keys,down_keys,left_keys,right_keys,enter_keys,escape
 multiple_button_input * keypads[]={&my_btns,&debug_keypad,0};
 int global_style=109;
 //end of global variables
-PROGMEM prog_char msg_00[]="Developed by:\nDr.Liu 05/23/11\nhttp://liudr.wordpress.com\nThis is just a mock-up of an actual data acquisition system with a 2-level menu.\nIt serves as a template for your actual project. It also shows off various features of the phi_prompt library.\nGo in \"Set Menu Style\" to find out some menu features you could be using in your project.\nPress Confirm to continue";
+const char* msg_00 = "Developed by:\nDr.Liu 05/23/11\nhttp://liudr.wordpress.com\nThis is just a mock-up of an actual data acquisition system with a 2-level menu.\nIt serves as a template for your actual project. It also shows off various features of the phi_prompt library.\nGo in \"Set Menu Style\" to find out some menu features you could be using in your project.\nPress Confirm to continue";
 
 //menu functions
 void show_credit()
@@ -72,14 +72,14 @@ void show_credit()
   lcd.noBlink();
   myLongMsg.ptr.msg_P=msg_00; // Assign the address of the text string to the pointer.
   myLongMsg.low.i=0; // Default text starting position. 0 is highly recommended.
-  myLongMsg.high.i=strlen_P(msg_00); // Position of the last character in the text string, which is size of the string - 1.
+  myLongMsg.high.i=strlen(msg_00); // Position of the last character in the text string, which is size of the string - 1.
   myLongMsg.step.c_arr[0]=lcd_rows; // rows to auto fit entire screen
   myLongMsg.step.c_arr[1]=lcd_columns; // one col list
   myLongMsg.col=0; // Display the text area starting at column 0
   myLongMsg.row=0; // Display the text area starting at row 0
   myLongMsg.option=0; // Option 0, display classic message, option 1, display message with scroll bar on right.
 
-  text_area_P(&myLongMsg);
+  text_area(&myLongMsg);
 }
 void top_menu_function_5() //Replace this with the actual function of menu item #2
 {
